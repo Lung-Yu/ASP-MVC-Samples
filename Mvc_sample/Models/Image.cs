@@ -12,11 +12,9 @@ namespace Mvc_sample.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Product
+    public partial class Image
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int DefaultImageId { get; set; }
-        public int Price { get; set; }
+        public int id { get; set; }
+        public string path { get; set; }
     }
 }

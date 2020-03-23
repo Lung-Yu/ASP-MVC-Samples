@@ -25,6 +25,7 @@ namespace Mvc_sample.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public DbSet<Image> Images { get; set; }
         public DbSet<Product> Products { get; set; }
     }
 }

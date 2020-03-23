@@ -182,9 +182,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_TEST.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>DB_TEST.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Product.cs">
       <DependentUpon>DB_TEST.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductWithImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -268,7 +272,6 @@
     <Content Include="Models\DB_TEST.edmx.diagram">
       <DependentUpon>DB_TEST.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\DB_TEST.edmx.sql" />
     <Content Include="Models\DB_TEST.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DB_TEST.edmx</DependentUpon>

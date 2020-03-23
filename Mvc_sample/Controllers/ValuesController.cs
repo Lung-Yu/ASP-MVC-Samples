@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Mvc_sample.Models;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -12,20 +14,27 @@ namespace Mvc_sample.Controllers
         // GET api/values
         public IEnumerable<Models.Product> Get()
         {
-            //return new string[] { "value1", "value2" };
-
             List<Models.Product> result = new List<Models.Product>();
 
             Models.DB_testEntities db = new Models.DB_testEntities();
             result = (from s in db.Products select s).ToList();
-            return result;
 
+            return result;
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IEnumerable<ProductWithImage> Get(int id)
         {
-            return "value";
+
+            List<ProductWithImage> result = new List<ProductWithImage>();
+
+            Models.DB_testEntities db = new Models.DB_testEntities();
+
+            result = (from p in db.Products
+                      join b in db.Images on p.DefaultImageId equals b.id
+                      select new ProductWithImage { Name = p.Name, Price = p.Price, Path = b.path }).ToList();
+
+           return result;
         }
 
         // POST api/values
